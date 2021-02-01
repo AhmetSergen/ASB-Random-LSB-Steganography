@@ -49,8 +49,8 @@ Dijital ortamda her türlü bilgi 0 ve 1 bitleri ile temsil edilip saklanabilir.
 
 LSB steganografi yönteminin doğrusal kullanılması, bilginin gömüleceği piksellerin okunma sırasının belirli bir doğrultuda doğrusal olarak devam etmesini gerektirir. Mesela bir bilginin, resmin soldan sağa ve aşağıdan yukarı sıralanan piksellerine belirli ve sabit bir aralıkla sırayla gömülmesi doğrusal bir steganografi tekniğidir.
 Dijital resimlerde doğrusal LSB steganografi kullanılarak, bilginin her pikselin en anlamsız tek bir bitine saklandığı bir yöntem için algoritma şu şekildedir:
-Gönderici Tarafından:\n
-Adım 1: Bilgi gömülecek resmin kapasitesi tespit edilir.\n
+Gönderici Tarafından:
+Adım 1: Bilgi gömülecek resmin kapasitesi tespit edilir.
 Adım 2: Bu kapasiteden daha küçük boyutta bilgi, resme gömülmek üzere işleme alınır.
 Adım 3: Bilgi eğer karakter halinde ise, ascii tablosundaki binary karşılığı kullanılarak binary formatına çevrilir.
 Adım 4: Her bir karakterin binary karşılığını oluşturan bitler, gömülecek mesaja uygun biçimde sıralanır.
@@ -78,7 +78,7 @@ piksel_sıra_numarası = y
 piksel_konum_Y = piksel_sıra_numarası / resim_boyu
 piksel_konum_X = piksel_sıra_numarası % resim_eni
 Dijital resimlerde doğrusal LSB steganografi kullanılarak, bilginin her pikselin en anlamsız tek bir bitine saklandığı bir yöntem için adımlar şu şekildedir:
-Gönderici tarafından :
+Gönderici tarafından :<br>
 Adım 1: Bilgi gömülecek resmin kapasitesi tespit edilir.
 Adım 2: Bu kapasiteden daha küçük boyutta bilgi, resme gömülmek üzere işleme alınır.
 Adım 3: Bilgi eğer karakter halinde ise, ascii tablosundaki binary karşılığı kullanılarak binary formatına çevrilir.
