@@ -11,28 +11,28 @@ Her dosya formatı ilk olarak formatın imzası olarak kabul edilen ve kendisine
 Steganografi, bir bilginin içine başka bir bilgiyi gizlemek olduğundan, dijital resimleri de bir bilgi bütünü kabul edip bu bilginin içine herhangi bir başka bilgiyi gizleyebiliriz. Bu bilgi gizlenirken, okuyucu tarafından hatasız okunabilmesi için belirli bir algoritmaya sadık kalması gereklidir.
 Dijital resim üzerinde bilgi gizlemenin birçok farklı yolu vardır. Fakat bu makalede bilginin doğrusal bir yol ile resmin piksel değerlerinin en önemsiz son bitine gizlendiği “Doğrusal LSB Steganografi” incelenecektir.
 
-**1.	GİRİŞ
+### 1.	GİRİŞ
 
-**1.1	Çalışmanın Amacı
+#### 1.1	Çalışmanın Amacı
 
 Bu çalışmanın amacı ,dijital ortamda resimlerin nasıl saklandığını, neden farklı resim dosyası formatlarının var olduğunu, GIF,BMP,JPG,TIFF,PNG resim dosya formatlarının çalışma prensiplerini ve bunların aralarındaki farkları açıklamak, dijital bir resme gizli bir bilgi eklemek için kullanılan doğrusal LSB steganografi yönteminin nasıl kullanılacağını incelemek ve anlatmaktır.
 
-**1.2	Dijital Ortamda Resimler Nasıl Temsil Edilir?
+#### 1.2	Dijital Ortamda Resimler Nasıl Temsil Edilir?
 
 Dijital ortamda bir resmi ayrık olarak pikseller bütünlüğü ile temsil etmek zorundayız. Her bir piksel, kendi değerini temsil eden sıralı bitlerden oluşur. Bunlar ile gri resimlerde gri seviyesi, renkli resimlerde renk kanallarının değeri ve istenilirse şeffaflık değeri belirtilebilir. Bir resim tüm bu bilgilerin tümünün belirli bir formatla bir araya gelmesiyle oluşturulur.
 Resmin bilgisayar tarafından uygun şekilde okunup yorumlanması için hangi formatta kaydedildiği bilinmelidir. Bu sebeple her resim dosyasının kodunun başında, o formata özel olarak yazılmış ve dosya hakkında bilgiler içeren “File Header” kısmı bulunur.
 
-**1.3	Steganografi Nedir?
+#### 1.3	Steganografi Nedir?
 
 Steganografi, eski Yunanca’da “gizlenmiş yazı” anlamına gelen bilgiyi gizleme bilimine verilen isimdir. 
 Steganografi her türlü alanda uygulanabileceği gibi çağımızın en önemli unsurlarından biri olan dijital ortamda da steganografi uygulanabilir. Bilginin dijital olarak taşındığı ve saklandığı bu ortamda yazı,resim,ses ve video formatlarındaki bilgilere çeşitli yöntemlerle istenen bilgi gizlice saklanabilir. Bu yöntemlerin uygulanmasında çeşitlilik sonsuz denebilir.
 
-**1.4	Dijital Resim Formatlarının Karşılaştırılması ve Değerlendirilmesi
+#### 1.4	Dijital Resim Formatlarının Karşılaştırılması ve Değerlendirilmesi
 
 Her bir resim formatının öne çıkan yanları mevcut ve amaca uygun şekilde seçim yapılmalıdır. Resim üzerinde bit seviyesinde çalışmalar yapılıyorsa ya da herhangi bir şekilde resimde hiçbir kayıp ve değişiklik istenmiyorsa kayıpsız sıkıştırma yöntemi sunabilen PNG,BMP,TIFF gibi formatlar kullanılmalıdır. Resimleri saklarken önceliğimiz boyutların küçük olması ise JPG gibi kayıplı sıkıştırma kullanan formatlar uygun olabilir. Bu formatlar özellikle çok fazla resmin saklanması gerektiği durumlarda ya da internet sayfasında resim gösterimi yapıldığı durumlarda sayfanın yükünü azaltmak için iyi bir seçenek olacaktır. 
 Dijital resim formatlarına steganografi uygulanmak istenirse, dijital resmin bu işlem sırasında hiçbir şekilde istenilenin dışında değişim geçirmemesi gerekir. Yani resmin içine bilgi gizlendiğinden itibaren resimde hiçbir şekilde kayıp olmamalıdır. Bu sebeple dijital resimlerde steganografi uygulanırken kesinlikle kayıplı sıkıştırma yöntemi kullanan resim formatları tercih edilmemelidir.
 
-**2.	METOT VE MATERYAL
+#### 2.	METOT VE MATERYAL
 
 Dijital resimler bilgisayar ortamında belli kurallar içeren matrislerdir denebilir. Her bir piksel, gösterdiği değeri temsilen kendisine ait bir sayı tutar. Bu ondalık sayılar, düşük seviye bilgisayar sisteminde 0 ve 1 lerden oluşan bitlerle temsil edilir. 8-bit ile temsil edilen bir piksel 0 ile 255 arası 256 farklı değer alabilir. 
 (bit8)2*(bit7)2*(bit6)2*(bit5)2*(bit4)2*(bit3)2*(bit2)2*(bit1)2 = 2^8 = 256		        
@@ -45,7 +45,7 @@ Eğer daha fazla anlamlı bit kullanılırsa resme gömülecek bilginin boyunu (
 Değiştirilecek olan bitlerin seçim algoritması, sonuç değerlendirmesinde önemli farklar yaratacağı için, şifrelenecek piksellerin seçiminde farklı teknikler kullanılabilir. Bu teknikler arasından Doğrusal ve Rastgele LSB steganografi algoritmaları incelenecektir.
 Dijital ortamda her türlü bilgi 0 ve 1 bitleri ile temsil edilip saklanabilir. Eğer bit tabanında bir yazı bilgisi saklanmak isterse, her bir karakteri temsil eden binary kodu tekil bitler halinde gömülerek saklanabilir. Her bir yazı karakteri için 8-bit binary kodonun bulunduğu bir standart olan ascii tablosundaki karakter karşılıkları kullanılarak her bir yazı karakteri anlaşılır şekilde bit seviyesinde saklanabilir.
 
-**2.1	Doğrusal LSB Steganografi
+#### 2.1	Doğrusal LSB Steganografi
 
 LSB steganografi yönteminin doğrusal kullanılması, bilginin gömüleceği piksellerin okunma sırasının belirli bir doğrultuda doğrusal olarak devam etmesini gerektirir. Mesela bir bilginin, resmin soldan sağa ve aşağıdan yukarı sıralanan piksellerine belirli ve sabit bir aralıkla sırayla gömülmesi doğrusal bir steganografi tekniğidir.
 Dijital resimlerde doğrusal LSB steganografi kullanılarak, bilginin her pikselin en anlamsız tek bir bitine saklandığı bir yöntem için algoritma şu şekildedir:
@@ -61,7 +61,7 @@ Adım 1: Gönderici tarafından yollanan anahtar yardımıyla, resme gömülü k
 Adım 2: Resmin sol üst köşesinden başlayarak, doğrusal olarak her bir pikselin en anlamsız biti saklanır. Bu işlem gömülen bilginin uzunluğu kadar devam eder.
 Adım 3: Saklanan tüm bitler ascii tablosunda bir karakter için gerekli bit sayısı kadar uzun gruplara ayrılır ve her grup, bir karakteri temsil eden binary kodu olarak sayılıp ascii tablosunda karşılık geldiği karakter bulunur. Bu sayede gömülü metin çıkarılıp çözülmüş olur.
 
-**2.2	Rastgele LSB Steganografi
+#### 2.2	Rastgele LSB Steganografi
 
 Şifrelenecek pikselleri belirleyen algoritmanın istenildiğinde farklı şekilde rastgele pikseller seçebilmesini sağlamak için, verici tarafından belirlenen ve vericiye iletilmesi gereken, rastgele piksel seçimi yapan algoritma için bir başlangıç değeri oluşturacak olan bir anahtar değer kullanılabilir. Bu anahtar değer, üçüncül kişilerin eline geçse dahi çalıştırılacak algoritma bilinmediği taktirde gizlenmek istenen mesaj üçüncül kişiler tarafından bulunamaz. 
 Anahtar değer belirlendiği taktirde, şifrenin gizlenmesi için seçilen rastgele bir pikselin konumu mod işlemi sayesinde belirli bir aralıkta tahmin edilemeyen değerler üreten bir algoritma ile bulunabilir ve şifre gömülmesi istenen piksel sayısı kadar tekrar ettirilebilir. Bu algoritma tersine mühendislik ile çözülmesinin zor olması gerekçesiyle üstel ve logaritmik işlemler içeren karmaşık bir algoritma olmalıdır. Bu tarz bir algoritmaya örnek olarak aşağıdaki işlem sırası gösterilebilir :
@@ -92,7 +92,7 @@ Adım 2: Rastgele piksel seçim algoritması, anahtardan elde edilen değer ile 
 Adım 3: Belirlenen piksellerin hepsinin en anlamsız biti (LSB) sırası ile kaydedilir.
 Adım 4: Sıralı olarak kaydedilen mesaj bitleri, ascii tablosundaki kurala göre birleştirilerek yazı karakterlerine dönüştürülür. Bu işlemlerden sonra resme gömülen mesaj ortaya çıkar.
 
-**3.	DEĞERLENDİRME
+#### 3.	DEĞERLENDİRME
 
 Örnek olarak uygulamada hedef resim dosyası olarak 512x512 piksel boyutlarında lena.bmp kullanılmıştır.
 Bu resmin kapasite (512*512)/8 = 32768 Byte = 32 kiloByte olarak belirlenmiştir. 
