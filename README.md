@@ -3,7 +3,7 @@ Random LSB (Least Significant Bit) steganography algorithm to encrypt any image 
 
 ## Açıklama (TR)
 
-## ÖZET
+### ÖZET
 
 Dijital ortamda her türlü bilgi 1 ve 0 değerlerinde bir bitlik değerler bütünü ile saklanır. Resimler de bu bilgilerle oluşturulur. Piksellerden oluşan ve her bir pikselin değerlerinin de bu şekilde bitler halinde tutulan resimler, aslında çok boyutlu birer matris olduklarından bu verinin boyutunu ve kalitesini istenilen düzeyde tutabilmek için, resmin saklanmasında farklı yöntemler kullanan dosya formatları geliştirilmiştir. Bu yöntemler, veriyi makul boyutlarda saklamayı amaçladığından şifreleme yöntemlerini kullanır ve bu yöntemler kayıplı veya kayıpsız olabilir.
 PNG,JPG,TIFF,GIF olarak isimleri kısaltılan formatlar da birer resim dosyası formatıdır. Her birinin kendine has özellikleri ve uygun kullanım alanları vardır.
