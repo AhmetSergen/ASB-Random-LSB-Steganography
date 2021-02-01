@@ -36,10 +36,10 @@ Dijital resim formatlarına steganografi uygulanmak istenirse, dijital resmin bu
 
 Dijital resimler bilgisayar ortamında belli kurallar içeren matrislerdir denebilir. Her bir piksel, gösterdiği değeri temsilen kendisine ait bir sayı tutar. Bu ondalık sayılar, düşük seviye bilgisayar sisteminde 0 ve 1 lerden oluşan bitlerle temsil edilir. 8-bit ile temsil edilen bir piksel 0 ile 255 arası 256 farklı değer alabilir. 
 (bit8)2*(bit7)2*(bit6)2*(bit5)2*(bit4)2*(bit3)2*(bit2)2*(bit1)2 = 2^8 = 256		        
-Dijital resmin içine bilgi gömmek için bu piksel değerleri manipüle edilir. Bu değerleri belirleyen bitler istenilen kurala göre değiştirilerek içerisine bilgi saklanabilir. 
+Dijital resmin içine bilgi gömmek için bu piksel değerleri manipüle edilir. Bu değerleri belirleyen bitler istenilen kurala göre değiştirilerek içerisine bilgi saklanabilir.
 Piksel değerleri resmin ilk halinden uzaklaştıkça bu değerler gürültü olarak algılanmaya başlar. Dijital resim dosyalarında gürültü fazla olursa insan gözü ile fark edilebilir. LSB yöntemi bu bitlerden en değersiz olan bitlere bilgiyi gömüp, dijital resmi ilk halinden olabildiğince az farklılaştırmaya dayanıyor. En değersiz bitteki değişim, değerli bitlerdeki değişime göre ondalık tabanda çok daha az fark yaratır. En anlamsız bitlerin değişmesi ile oluşan gürültü miktarı, anlamlı bitlerin değişmesi ile oluşan gürültü miktarından çok daha azdır.<br>
-(MSB değişimi farkı) 11111111 – 01111111 = 255 – 127 = 128<br>			
-(LSB değişimi farkı)  11111111 – 11111110 = 255 – 254 = 1<br>                                                 
+(MSB değişimi farkı) 11111111 – 01111111 = 255 – 127 = 128<br>
+(LSB değişimi farkı)  11111111 – 11111110 = 255 – 254 = 1<br>
 Bilginin gömülmesi için ne kadar anlamlı bitlerin kullanılacağı, resmin kapasitesi ve oluşan gürültünün fark edilme oranı arasında bir takas oluşturur. 
 Eğer daha fazla anlamlı bit kullanılırsa resme gömülecek bilginin boyunu (bit sayısı) artar fakat bunun karşılığında resim ilk halinden daha farklı olur ve resmin gürültü miktarı da artar.<br>
 Değiştirilecek olan bitlerin seçim algoritması, sonuç değerlendirmesinde önemli farklar yaratacağı için, şifrelenecek piksellerin seçiminde farklı teknikler kullanılabilir. Bu teknikler arasından Doğrusal ve Rastgele LSB steganografi algoritmaları incelenecektir.
