@@ -15,7 +15,7 @@ Dijital resim üzerinde bilgi gizlemenin birçok farklı yolu vardır. Fakat bu 
 
 #### 1.1	Çalışmanın Amacı
 
-Bu çalışmanın amacı ,dijital ortamda resimlerin nasıl saklandığını, neden farklı resim dosyası formatlarının var olduğunu, GIF,BMP,JPG,TIFF,PNG resim dosya formatlarının çalışma prensiplerini ve bunların aralarındaki farkları açıklamak, dijital bir resme gizli bir bilgi eklemek için kullanılan doğrusal LSB steganografi yönteminin nasıl kullanılacağını incelemek ve anlatmaktır.
+Bu çalışmanın amacı ,dijital ortamda resimlerin nasıl saklandığını, neden farklı resim dosyası formatlarının var olduğunu, GIF,BMP,JPG,TIFF,PNG resim dosya formatlarının çalışma prensiplerini ve bunların aralarındaki farkları açıklamak, dijital bir resme gizli bir bilgi eklemek için kullanılan rastgele LSB steganografi yönteminin nasıl kullanılacağını incelemek ve anlatmaktır.
 
 #### 1.2	Dijital Ortamda Resimler Nasıl Temsil Edilir?
 
